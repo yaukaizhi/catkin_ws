@@ -1,15 +1,9 @@
 # Adapted from: https://medium.com/@tuzzer/cart-pole-balancing-with-q-learning-b54c6068d947
-
 import gym
 import numpy as np
 import random
 import math
 import time
-# from time import sleep
-import gym
-import numpy as np
-import random
-import math
 from time import sleep
 
 
