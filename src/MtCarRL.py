@@ -1,13 +1,15 @@
+from cProfile import label
 import numpy as np
 import gym
 import matplotlib.pyplot as plt
+import math
 
 learn_rate=0.2
 discount_rate=0.9
 epsilon=0.8
 min_eps=0
-num_train_ep=50000
-num_test_ep=50000
+num_train_ep=5000
+num_test_ep=5000
 
 # Import and initialize Mountain Car Environment
 env = gym.make("MountainCar-v0")
@@ -32,7 +34,7 @@ def QLearning(env, learning, discount, epsilon, min_eps, episodes):
     ave_reward_list = []
     
     # Calculate episodic reduction in epsilon
-    reduction = (epsilon - min_eps)/episodes
+    #reduction = (epsilon - min_eps)/episodes
     
     # Run Q learning algorithm
     for i in range(episodes):
@@ -83,7 +85,8 @@ def QLearning(env, learning, discount, epsilon, min_eps, episodes):
         
         # Decay epsilon
         if epsilon > min_eps:
-            epsilon -= reduction
+            epsilon=max(min_eps, min(1, 1.0 - math.log10((episodes+1)/25)))
+
         
         # Track rewards
         reward_list.append(tot_reward)
@@ -152,7 +155,6 @@ def test(env, learning, discount, epsilon, min_eps, episodes):
         # Decay epsilon
         if epsilon > min_eps:
             epsilon -= reduction
-        
         # Track rewards
         reward_list.append(tot_reward)
         
@@ -167,23 +169,24 @@ def test(env, learning, discount, epsilon, min_eps, episodes):
 
 def plot_train(rewards_train):
     # Plot Rewards
-    plt.plot(100*(np.arange(len(rewards_train)) + 1), rewards_train)
+    plt.plot(100*(np.arange(len(rewards_train)) + 1), rewards_train, "-r", label="Training Rewards")
 
 def plot_test(rewards_test):
     # Plot Rewards
-    plt.plot(100*(np.arange(len(rewards_test)) + 1), rewards_test)
+    plt.plot(100*(np.arange(len(rewards_test)) + 1), rewards_test, "-b",label="Testing Rewards")
     plt.xlabel('Episodes')
-    plt.ylabel('Reward')
-    plt.title('Reward vs Episodes') 
+    plt.ylabel('Average Reward')
+    plt.title('Avergae Reward vs Episodes') 
 
 if __name__ == "__main__":
     # Run Q-learning algorithm
     print('training...')
     rewards_train = QLearning(env, learn_rate, discount_rate, epsilon,min_eps,num_train_ep)
     print('testing...')
-    rewards_test =test(env, learn_rate, discount_rate, 0,0,num_test_ep)
+    rewards_test =test(env, 0, discount_rate, 0,0,num_test_ep)
     plot_train(rewards_train)
     plot_test(rewards_test)
+    plt.legend(loc="upper left")
     plt.show()
     
 
