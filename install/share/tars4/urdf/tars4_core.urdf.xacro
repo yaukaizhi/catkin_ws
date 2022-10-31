@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="tars4">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0732745727557489 0.000493510970256962 0.413214837428418"
+        rpy="0 0 0" />
+      <mass
+        value="26.298368938694" />
+      <inertia
+        ixx="1.2118547835405"
+        ixy="0.000301913650025786"
+        ixz="0.244146054455403"
+        iyy="2.63217845117372"
+        iyz="-0.00186525892761391"
+        izz="2.69232933962158" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="white">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="frontleftwheel">
+    <inertial>
+      <origin
+        xyz="-2.7756E-17 -0.0275 -8.3267E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.8042" />
+      <inertia
+        ixx="0.0051847"
+        ixy="6.6094E-20"
+        ixz="-1.7149E-19"
+        iyy="0.0094659"
+        iyz="-1.8286E-18"
+        izz="0.0051847" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/frontleftwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/frontleftwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="frontleftwheel">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <joint
+    name="frontleftjoint"
+    type="continuous">
+    <origin
+      xyz="0.14985 0.2475 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="frontleftwheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1.5" />
+  </joint>
+  <link
+    name="backleftwheel">
+    <inertial>
+      <origin
+        xyz="-9.7145E-17 -0.0275 1.3878E-16"
+        rpy="0 0 0" />
+      <mass
+        value="1.8042" />
+      <inertia
+        ixx="0.0051847"
+        ixy="4.9875E-19"
+        ixz="5.9653E-19"
+        iyy="0.0094659"
+        iyz="-3.044E-18"
+        izz="0.0051847" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/backleftwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/backleftwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="backleftwheel">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <joint
+    name="backleftjoint"
+    type="continuous">
+    <origin
+      xyz="-0.15015 0.2475 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="backleftwheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1.5" />
+  </joint>
+  <link
+    name="frontrightwheel">
+    <inertial>
+      <origin
+        xyz="0 0.0275 8.3267E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.8042" />
+      <inertia
+        ixx="0.0051847"
+        ixy="-1.216E-20"
+        ixz="-6.3548E-19"
+        iyy="0.0094659"
+        iyz="3.4218E-18"
+        izz="0.0051847" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/frontrightwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/frontrightwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="frontrightwheel">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <joint
+    name="frontrightjoint"
+    type="continuous">
+    <origin
+      xyz="0.14985 -0.2475 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="frontrightwheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1.5" />
+  </joint>
+  <link
+    name="backrightwheel">
+    <inertial>
+      <origin
+        xyz="-9.7145E-17 0.0275 -1.3878E-16"
+        rpy="0 0 0" />
+      <mass
+        value="1.8042" />
+      <inertia
+        ixx="0.0051847"
+        ixy="9.3321E-20"
+        ixz="2.4737E-19"
+        iyy="0.0094659"
+        iyz="3.0839E-18"
+        izz="0.0051847" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/backrightwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tars4/meshes/backrightwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+<gazebo reference="backrightwheel">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <joint
+    name="backrightjoint"
+    type="continuous">
+    <origin
+      xyz="-0.15015 -0.2475 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="backrightwheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1.5" />
+  </joint>
+</robot>

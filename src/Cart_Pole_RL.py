@@ -1,12 +1,15 @@
-# Adapted from: https://medium.com/@tuzzer/cart-pole-balancing-with-q-learning-b54c6068d947
 import gym
 import numpy as np
 import random
 import math
 import time
 from time import sleep
+import matplotlib.pyplot as plt
 
-
+#lists to visualize data in graphs
+timestep_list=[]
+timestep_test_list=[]
+tt=0
 ## Initialize the "Cart-Pole" environment
 env = gym.make('CartPole-v1')
 
@@ -36,8 +39,8 @@ MIN_LEARNING_RATE = 0.1
 TEST_RAND_PROB = 0.2
 
 ## Defining the simulation related constants
-NUM_TRAIN_EPISODES = 1000 # 1000
-NUM_TEST_EPISODES = 1
+NUM_TRAIN_EPISODES = 300 
+NUM_TEST_EPISODES = 100
 MAX_TRAIN_T = 500
 MAX_TEST_T = 250
 STREAK_TO_END = 120
@@ -50,11 +53,10 @@ def train():
     learning_rate = get_learning_rate(0)
     explore_rate = get_explore_rate(0)
     discount_factor = 0.99  # since the world is unchanging
-
+    tt=0
     num_train_streaks = 0
 
     for episode in range(NUM_TRAIN_EPISODES):
-
         # Reset the environment
         obv,_ = env.reset()
 
@@ -99,20 +101,21 @@ def train():
                print("Episode %d finished after %f time steps" % (episode, t))
                if (t >= SOLVED_T):
                    num_train_streaks += 1
+                   tt+=1
                else:
                    num_train_streaks = 0
                break
 
             #sleep(0.25)
-
+           
         # It's considered done when it's solved over 120 times consecutively
         if num_train_streaks > STREAK_TO_END:
             break
 
         # Update parameters
         explore_rate = get_explore_rate(episode)
-        learning_rate = get_learning_rate(episode)
-        
+        learning_rate = get_learning_rate(episode) 
+        timestep_list.append(t)
         
 def test():
 
@@ -132,7 +135,6 @@ def test():
         tt = 0
         done = False
 
-        #while ((abs(obv[0]) < 2.4) & (abs(obv[2]) < 45)):
         while not(done):
             tt += 1
             env.render()
@@ -148,8 +150,8 @@ def test():
             # Observe the result
             state_0 = state_to_bucket(obv)
 
-            print("Test episode %d; time step %f." % (episode, tt))
-
+        print("Test episode %d; time step %f." % (episode, tt))
+        timestep_test_list.append(tt)
 
 def select_action(state, explore_rate):
     # Select a random action
@@ -195,3 +197,14 @@ if __name__ == "__main__":
     print('Testing ...')
     test()
     print(q_table)
+    plt.subplot(211)
+    plt.plot((np.arange(len(timestep_list)) + 1), timestep_list, "-r", label="Training Timestep")
+    plt.xlabel('Episodes')
+    plt.ylabel('Timestep')
+    plt.title('Training Timestep vs Episodes') 
+    plt.subplot(212)
+    plt.plot((np.arange(len(timestep_test_list)) + 1), timestep_test_list, "-b", label="Testing Timestep")
+    plt.xlabel('Episodes')
+    plt.ylabel('Timestep')
+    plt.title('Testing Timestep vs Episodes')
+    plt.show()
