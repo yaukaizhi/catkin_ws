@@ -122,9 +122,11 @@ def test():
     num_test_streaks = 0
     env = gym.make('CartPole-v1')
     #env = gym.make('CartPole-v1',render_mode='human')
+    state,info = env.reset()
 
     for episode in range(NUM_TEST_EPISODES):
-
+        if episode == (NUM_TEST_EPISODES - 1):
+            env=gym.make('CartPole-v1',render_mode="human")
         # Reset the environment
         obv,_ = env.reset()
 
