@@ -131,7 +131,7 @@ def test(env, learning, discount, epsilon, min_eps, episodes):
         state,info = env.reset()
         # Render environment for last 3 episodes
         if i >= (episodes - 3):
-            env=gym.make("MountainCar-v0")
+            env=gym.make("MountainCar-v0",render_mode="human")
             state,info = env.reset()
 
         # Discretize state
