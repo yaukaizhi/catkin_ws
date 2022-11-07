@@ -1,10 +1,11 @@
-
+<?xml version="1.0" encoding="UTF-8" ?>
 <launch>
         <!-- overwriting these args -->
         <arg name="debug" default="false" />
         <arg name="gui" default="true" />
         <arg name="pause" default="false" />
-        <include file="$(find gazebo_ros)/worlds/tasrs4_world.world">
+        <arg name="world" default="$(find tars4)/urdf/tars4_world.world" />
+
         <!-- include gazebo_ros launcher -->
         <include file="$(find gazebo_ros)/launch/empty_world.launch">
                 <arg name="world_name" value="$(arg world)" />
@@ -14,4 +15,3 @@
                 <arg name="use_sim_time" value="true" />
         </include>
 </launch>
-
