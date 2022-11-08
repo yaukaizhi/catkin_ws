@@ -5,10 +5,13 @@ import math
 import time
 from time import sleep
 import matplotlib.pyplot as plt
+import csv
 
 #lists to visualize data in graphs
-timestep_list=[]
 timestep_test_list=[]
+NUM_OF_EPISODES_NEEDED_list=[]
+AVERAGE_NUM_OF_EPISODES_NEEDED_list=[]
+
 tt=0
 ## Initialize the "Cart-Pole" environment
 env = gym.make('CartPole-v1')
@@ -39,13 +42,14 @@ MIN_LEARNING_RATE = 0.1
 TEST_RAND_PROB = 0.2
 
 ## Defining the simulation related constants
-NUM_TRAIN_EPISODES = 300 
+NUM_TRAIN_EPISODES = 2000 
 NUM_TEST_EPISODES = 100
 MAX_TRAIN_T = 500
 MAX_TEST_T = 250
 STREAK_TO_END = 120
 SOLVED_T = 199
 VERBOSE = False
+TOTAL_TRIES=10
 
 def train():
 
@@ -54,8 +58,8 @@ def train():
     explore_rate = get_explore_rate(0)
     discount_factor = 0.99  # since the world is unchanging
     tt=0
+    timestep_list=[]
     num_train_streaks = 0
-
     for episode in range(NUM_TRAIN_EPISODES):
         # Reset the environment
         obv,_ = env.reset()
@@ -64,7 +68,7 @@ def train():
         state_0 = state_to_bucket(obv)
 
         for t in range(MAX_TRAIN_T):
-            env.render()
+            #env.render()
 
             # Select an action
             action = select_action(state_0, explore_rate)
@@ -98,16 +102,16 @@ def train():
 
 
             if done:
-               print("Episode %d finished after %f time steps" % (episode, t))
-               if (t >= SOLVED_T):
-                   num_train_streaks += 1
-                   tt+=1
-               else:
-                   num_train_streaks = 0
-               break
+                print("Episode %d finished after %f time steps" % (episode, t))
+                if (t >= SOLVED_T):
+                    num_train_streaks += 1
+                    tt+=1
+                else:
+                    num_train_streaks = 0
+                break
 
             #sleep(0.25)
-           
+            
         # It's considered done when it's solved over 120 times consecutively
         if num_train_streaks > STREAK_TO_END:
             break
@@ -116,7 +120,10 @@ def train():
         explore_rate = get_explore_rate(episode)
         learning_rate = get_learning_rate(episode) 
         timestep_list.append(t)
-        
+    NUM_OF_EPISODES_NEEDED=len(timestep_list) #records no. of episodes needed to train
+    return NUM_OF_EPISODES_NEEDED
+
+
 def test():
 
     num_test_streaks = 0
@@ -139,7 +146,7 @@ def test():
 
         while not(done):
             tt += 1
-            env.render()
+            #env.render()
 
             # Select an action
             action = select_action(state_0, 0)
@@ -193,12 +200,25 @@ def state_to_bucket(state):
         bucket_indice.append(bucket_index)
     return tuple(bucket_indice)
 
+def Average(list):
+    return sum(list)/len(list)
+
 if __name__ == "__main__":
     print('Training ...')
-    train()
-    print('Testing ...')
-    test()
-    print(q_table)
+    for i in range(TOTAL_TRIES):
+        ## Initialize new Q Table
+        q_table = np.zeros(NUM_BUCKETS + (NUM_ACTIONS,))
+        NUM_OF_EPISODES_NEEDED=train()
+        NUM_OF_EPISODES_NEEDED_list.append(NUM_OF_EPISODES_NEEDED) #records no. of episodes needed to train into a list
+    AVERAGE_NUM_OF_EPISODES_NEEDED=Average(NUM_OF_EPISODES_NEEDED_list) #averages no. of episodes
+    print("Average # of eps:",AVERAGE_NUM_OF_EPISODES_NEEDED)
+   # with open('Cart_PoleDecay.csv','w') as file:
+   #     writer=csv.writer(file)
+   #     writer.writerow(AVERAGE_NUM_OF_EPISODES_NEEDED)
+    #print('Testing ...')
+    #test()
+    '''
+    #print(q_table)
     plt.subplot(211)
     plt.plot((np.arange(len(timestep_list)) + 1), timestep_list, "-r", label="Training Timestep")
     plt.xlabel('Episodes')
@@ -210,3 +230,4 @@ if __name__ == "__main__":
     plt.ylabel('Timestep')
     plt.title('Testing Timestep vs Episodes')
     plt.show()
+    '''
