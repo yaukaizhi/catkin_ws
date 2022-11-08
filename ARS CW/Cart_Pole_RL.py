@@ -5,7 +5,6 @@ import math
 import time
 from time import sleep
 import matplotlib.pyplot as plt
-import csv
 
 #lists to visualize data in graphs
 timestep_test_list=[]
@@ -43,7 +42,7 @@ TEST_RAND_PROB = 0.2
 
 ## Defining the simulation related constants
 NUM_TRAIN_EPISODES = 2000 
-NUM_TEST_EPISODES = 100
+NUM_TEST_EPISODES = 50
 MAX_TRAIN_T = 500
 MAX_TEST_T = 250
 STREAK_TO_END = 120
@@ -133,7 +132,7 @@ def test():
 
     for episode in range(NUM_TEST_EPISODES):
         if episode == (NUM_TEST_EPISODES - 1):
-            env=gym.make('CartPole-v1',render_mode="human")
+            env=gym.make('CartPole-v1')
         # Reset the environment
         obv,_ = env.reset()
 
@@ -161,6 +160,7 @@ def test():
 
         print("Test episode %d; time step %f." % (episode, tt))
         timestep_test_list.append(tt)
+    return timestep_test_list
 
 def select_action(state, explore_rate):
     # Select a random action
@@ -208,15 +208,15 @@ if __name__ == "__main__":
     for i in range(TOTAL_TRIES):
         ## Initialize new Q Table
         q_table = np.zeros(NUM_BUCKETS + (NUM_ACTIONS,))
-        NUM_OF_EPISODES_NEEDED=train()
-        NUM_OF_EPISODES_NEEDED_list.append(NUM_OF_EPISODES_NEEDED) #records no. of episodes needed to train into a list
-    AVERAGE_NUM_OF_EPISODES_NEEDED=Average(NUM_OF_EPISODES_NEEDED_list) #averages no. of episodes
-    print("Average # of eps:",AVERAGE_NUM_OF_EPISODES_NEEDED)
-   # with open('Cart_PoleDecay.csv','w') as file:
-   #     writer=csv.writer(file)
-   #     writer.writerow(AVERAGE_NUM_OF_EPISODES_NEEDED)
-    #print('Testing ...')
-    #test()
+        NUM_OF_TRAIN_EPISODES_NEEDED=train()
+        NUM_OF_EPISODES_NEEDED_list.append(NUM_OF_TRAIN_EPISODES_NEEDED) #records no. of episodes needed to train into a list
+        print('Testing ...')
+        TEST_EPISODES_SCORE=test()
+    AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED=Average(NUM_OF_EPISODES_NEEDED_list) #averages no. of episodes
+    print("Average # of eps:",AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED)
+    AVERAGE_TEST_EPISODE_SCORE=Average(TEST_EPISODES_SCORE)
+    print("Average test score:",AVERAGE_TEST_EPISODE_SCORE)
+    
     '''
     #print(q_table)
     plt.subplot(211)
