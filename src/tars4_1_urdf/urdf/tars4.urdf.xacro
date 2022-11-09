@@ -336,9 +336,11 @@
                 </clip>
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                <frame_name>r_camera_link_optical</frame_name>
                 <cameraName>r_camera</cameraName>
-                <imageTopicName>r_camera/r_image_raw</imageTopicName>
+                <frame_name>r_camera_link_optical</frame_name>
+                <imageTopicName>/stereo/right/image_raw</imageTopicName>
+                <cameraInfoTopicName>/stereo/right/camera_info</cameraInfoTopicName>
+                <broadcastTF>true</broadcastTF>
                 <min_depth>0.5</min_depth>
                 <max_depth>25</max_depth>
             </plugin>
@@ -400,8 +402,9 @@
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
                 <cameraName>l_camera</cameraName>
                 <frame_name>l_camera_link_optical</frame_name>
-                <imageTopicName>l_camera/l_image_raw</imageTopicName>
-                <cameraInfoTopicName>l_camera/l_camera_info</cameraInfoTopicName>
+                <imageTopicName>/stereo/left/image_raw</imageTopicName>
+                <cameraInfoTopicName>/stereo/left/camera_info</cameraInfoTopicName>
+                <broadcastTF>true</broadcastTF>
                 <min_depth>0.5</min_depth>
                 <max_depth>25</max_depth>
             </plugin>
