@@ -337,6 +337,7 @@
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
                 <frame_name>camera_link_optical</frame_name>
+                <cameraName>camera</cameraName>
                 <min_depth>0.5</min_depth>
                 <max_depth>25</max_depth>
             </plugin>
