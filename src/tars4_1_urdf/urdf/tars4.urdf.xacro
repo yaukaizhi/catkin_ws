@@ -285,14 +285,14 @@
       effort="1"
       velocity="1.5" />
   </joint>
-
-  <joint name="camera_joint" type="fixed">
+<!--right camera ..............................................-->
+  <joint name="r_camera_joint" type="fixed">
         <parent link="base_link"/>
-        <child link="camera_link"/>
-        <origin xyz="0.32636 0 0.65905" rpy="0 0 0"/>
+        <child link="r_camera_link"/>
+        <origin xyz="0.32636 0.06 0.65905" rpy="0 0 0"/>
     </joint>
 
-    <link name="camera_link">
+    <link name="r_camera_link">
         <visual>
             <geometry>
                 <box size="0.033 0.175 0.03"/>
@@ -306,20 +306,20 @@
     </link>
 
 
-    <joint name="camera_optical_joint" type="fixed">
-        <parent link="camera_link"/>
-        <child link="camera_link_optical"/>
+    <joint name="r_camera_optical_joint" type="fixed">
+        <parent link="r_camera_link"/>
+        <child link="r_camera_link_optical"/>
         <origin xyz="0 0 0" rpy="-1.57079632679 0 -1.57079632679"/>
     </joint>
 
-    <link name="camera_link_optical"></link>
+    <link name="r_camera_link_optical"></link>
 
 
 
-    <gazebo reference="camera_link">
+    <gazebo reference="r_camera_link">
         <material>Gazebo/Red</material>
 
-        <sensor name="camera" type="depth">
+        <sensor name="camera" type="camera">
             <pose> 0 0 0 0 0 0 </pose>
             <visualize>true</visualize>
             <update_rate>30</update_rate>
@@ -336,14 +336,80 @@
                 </clip>
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                <frame_name>camera_link_optical</frame_name>
+                <frame_name>r_camera_link_optical</frame_name>
+                <cameraName>r_camera</cameraName>
+                <imageTopicName>r_camera/r_image_raw</imageTopicName>
                 <min_depth>0.5</min_depth>
                 <max_depth>25</max_depth>
             </plugin>
         </sensor>
     </gazebo>
 
-<gazebo>
+
+<!-- left camera .............................................. -->
+  <joint name="l_camera_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="l_camera_link"/>
+        <origin xyz="0.32636 -0.06 0.65905" rpy="0 0 0"/>
+    </joint>
+
+    <link name="l_camera_link">
+        <visual>
+            <geometry>
+                <box size="0.033 0.175 0.03"/>
+                <material
+                name="">
+                <color
+                rgba="0 0 0 1" />
+               </material>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <joint name="l_camera_optical_joint" type="fixed">
+        <parent link="l_camera_link"/>
+        <child link="l_camera_link_optical"/>
+        <origin xyz="0 0 0" rpy="-1.57079632679 0 -1.57079632679"/>
+    </joint>
+
+    <link name="l_camera_link_optical"></link>
+
+
+
+    <gazebo reference="l_camera_link">
+        <material>Gazebo/Red</material>
+
+        <sensor name="l_camera" type="camera">
+            <pose> 0 0 0 0 0 0 </pose>
+            <visualize>true</visualize>
+            <update_rate>30</update_rate>
+            <camera>
+                <horizontal_fov>1.57079632679</horizontal_fov>
+                <image>
+                    <format>B8G8R8</format>
+                    <width>1920</width>
+                    <height>1080</height>
+                </image>
+                <clip>
+                    <near>0.5</near>
+                    <far>25.0</far>
+                </clip>
+            </camera>
+
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <cameraName>l_camera</cameraName>
+                <frame_name>l_camera_link_optical</frame_name>
+                <imageTopicName>l_camera/l_image_raw</imageTopicName>
+                <cameraInfoTopicName>l_camera/l_camera_info</cameraInfoTopicName>
+                <min_depth>0.5</min_depth>
+                <max_depth>25</max_depth>
+            </plugin>
+        </sensor>
+    </gazebo>
+ <!--Skid Steer Plugin ..............................................-->
+
+ <gazebo>
   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
     <updateRate>100.0</updateRate>
     <robotNamespace>/</robotNamespace>
