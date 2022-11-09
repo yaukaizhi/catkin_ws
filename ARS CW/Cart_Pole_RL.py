@@ -5,6 +5,7 @@ import math
 import time
 from time import sleep
 import matplotlib.pyplot as plt
+import statistics
 
 #lists to visualize data in graphs
 timestep_test_list=[]
@@ -41,20 +42,21 @@ MIN_LEARNING_RATE = 0.1
 TEST_RAND_PROB = 0.2
 
 ## Defining the simulation related constants
-NUM_TRAIN_EPISODES = 2000 
+NUM_TRAIN_EPISODES = 2000
 NUM_TEST_EPISODES = 50
 MAX_TRAIN_T = 500
 MAX_TEST_T = 250
 STREAK_TO_END = 120
 SOLVED_T = 199
 VERBOSE = False
-TOTAL_TRIES=10
+TOTAL_TRIES=3
 
 def train():
 
     ## Instantiating the learning related parameters
     learning_rate = get_learning_rate(0)
-    explore_rate = get_explore_rate(0)
+    #explore_rate = get_explore_rate(0,1)
+    explore_rate=1
     discount_factor = 0.99  # since the world is unchanging
     tt=0
     timestep_list=[]
@@ -101,7 +103,9 @@ def train():
 
 
             if done:
-                print("Episode %d finished after %f time steps" % (episode, t))
+                if episode%1000==0:
+
+                    print("Episode %d finished after %f time steps" % (episode, t))
                 if (t >= SOLVED_T):
                     num_train_streaks += 1
                     tt+=1
@@ -116,7 +120,9 @@ def train():
             break
 
         # Update parameters
-        explore_rate = get_explore_rate(episode)
+        explore_rate = get_explore_rate(episode,0)
+        #explore_rate=explore_rate*math.e**(-1*(t+20)/40)
+        #print("rate:",explore_rate)
         learning_rate = get_learning_rate(episode) 
         timestep_list.append(t)
     NUM_OF_EPISODES_NEEDED=len(timestep_list) #records no. of episodes needed to train
@@ -157,8 +163,8 @@ def test():
             done=done or truncated
             # Observe the result
             state_0 = state_to_bucket(obv)
-
-        print("Test episode %d; time step %f." % (episode, tt))
+        
+        #print("Test episode %d; time step %f." % (episode, tt))
         timestep_test_list.append(tt)
     return timestep_test_list
 
@@ -172,8 +178,13 @@ def select_action(state, explore_rate):
     return action
 
 
-def get_explore_rate(t):
-    return max(MIN_EXPLORE_RATE, min(1, 1.0 - math.log10((t+1)/25)))
+
+def get_explore_rate(t,mode):
+    if mode==0:
+        return max(MIN_EXPLORE_RATE, min(1, 1.0 - math.log10((t+1)/10)))
+    elif mode==1:
+        initial_rate=1
+        return max(MIN_EXPLORE_RATE,initial_rate*math.e**(-1*(t+20)/40))
 
 def get_learning_rate(t):
     return max(MIN_LEARNING_RATE, min(0.5, 1.0 - math.log10((t+1)/25)))
@@ -213,6 +224,7 @@ if __name__ == "__main__":
         print('Testing ...')
         TEST_EPISODES_SCORE=test()
     AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED=Average(NUM_OF_EPISODES_NEEDED_list) #averages no. of episodes
+    print("Standard Dev:",statistics.stdev(NUM_OF_EPISODES_NEEDED_list))
     print("Average # of eps:",AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED)
     AVERAGE_TEST_EPISODE_SCORE=Average(TEST_EPISODES_SCORE)
     print("Average test score:",AVERAGE_TEST_EPISODE_SCORE)
