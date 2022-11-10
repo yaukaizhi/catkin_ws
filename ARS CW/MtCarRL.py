@@ -93,10 +93,10 @@ def QLearning(env, learning, discount, epsilon, min_eps, episodes):
         
         # Decay epsilon
         if epsilon > min_eps:
-            #epsilon=max(min_eps, min(1, 1.0 - math.log10((episodes+1)/25)))
-            #epsilon_decay=epsilon*0.9
-            epsilon_decay=1-(0.05*i)
-            epsilon=max(min_eps,epsilon_decay)
+            epsilon=max(min_eps, min(1, 1.0 - math.log10((episodes+1)/90)))
+            #epsilon_decay=epsilon*0.1
+            #epsilon_decay=1-(0.09*i)
+            #epsilon=max(min_eps,epsilon_decay)
 
         if (i+1) % 100 == 0:
             #ave_reward_list.append(tot_reward)  
@@ -198,8 +198,8 @@ if __name__ == "__main__":
         rewards_test =test(env, 0, discount_rate, 0,0,num_test_ep)
     print("train list:",NUM_OF_TRAIN_EPISODES_NEEDED_list)
     AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED=Average(NUM_OF_TRAIN_EPISODES_NEEDED_list)
-    print("Average # of eps:",AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED)
     print("Standard Dev:",statistics.stdev(NUM_OF_TRAIN_EPISODES_NEEDED_list))
+    print("Average # of eps:",AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED)
     AVERAGE_TEST_EPISODE_SCORE=Average(rewards_test)
     print("Average test score:",AVERAGE_TEST_EPISODE_SCORE)
 
