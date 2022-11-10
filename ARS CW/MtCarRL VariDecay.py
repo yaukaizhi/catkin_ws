@@ -17,6 +17,7 @@ Episode_list=[]
 NUM_OF_TRAIN_EPISODES_NEEDED_list=[]
 
 
+
 # Import and initialize Mountain Car Environment
 env = gym.make("MountainCar-v0")
 #env = gym.make("MountainCar-v0",render_mode='human')
@@ -33,6 +34,7 @@ Q = np.random.uniform(low = -1, high = 1,size = (num_states[0], num_states[1], e
 # Define Q-learning function
 def QLearning(env, learning, discount, epsilon, min_eps, episodes):
     streak=0
+    REWARD_THRESHOLD=-180
     # Initialize variables to track rewards
     reward_list = []
     ave_reward_list = []
@@ -92,11 +94,12 @@ def QLearning(env, learning, discount, epsilon, min_eps, episodes):
             streak=0
         
         # Decay epsilon
-        if epsilon > min_eps:
-            #epsilon=max(min_eps, min(1, 1.0 - math.log10((episodes+1)/25)))
-            #epsilon_decay=epsilon*0.9
-            epsilon_decay=1-(0.05*i)
-            epsilon=max(min_eps,epsilon_decay)
+        if epsilon > min_eps and tot_reward>=REWARD_THRESHOLD:
+            epsilon=max(min_eps, min(1, 1.0 - math.log10((episodes+1)/25)))
+            #epsilon_decay=epsilon*0.9**i
+            #epsilon_decay=1-(0.05*i)
+            #epsilon=max(min_eps,epsilon_decay)
+            REWARD_THRESHOLD=REWARD_THRESHOLD+30
 
         if (i+1) % 100 == 0:
             #ave_reward_list.append(tot_reward)  
