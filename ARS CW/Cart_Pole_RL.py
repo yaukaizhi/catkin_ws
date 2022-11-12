@@ -6,11 +6,13 @@ import time
 from time import sleep
 import matplotlib.pyplot as plt
 import statistics
+import csv
 
 #lists to visualize data in graphs
 timestep_test_list=[]
 NUM_OF_EPISODES_NEEDED_list=[]
 AVERAGE_NUM_OF_EPISODES_NEEDED_list=[]
+rewards_train_list=[]
 
 tt=0
 ## Initialize the "Cart-Pole" environment
@@ -42,23 +44,23 @@ MIN_LEARNING_RATE = 0.1
 TEST_RAND_PROB = 0.2
 
 ## Defining the simulation related constants
-NUM_TRAIN_EPISODES = 2000
+NUM_TRAIN_EPISODES = 300
 NUM_TEST_EPISODES = 50
 MAX_TRAIN_T = 500
 MAX_TEST_T = 250
 STREAK_TO_END = 120
 SOLVED_T = 199
 VERBOSE = False
-TOTAL_TRIES=3
+TOTAL_TRIES=100
 
 def train():
 
     ## Instantiating the learning related parameters
     learning_rate = get_learning_rate(0)
-    #explore_rate = get_explore_rate(0,1)
-    explore_rate=1
+    explore_rate = get_explore_rate(0)
     discount_factor = 0.99  # since the world is unchanging
     tt=0
+    reward_thresh=100
     timestep_list=[]
     num_train_streaks = 0
     for episode in range(NUM_TRAIN_EPISODES):
@@ -103,7 +105,7 @@ def train():
 
 
             if done:
-                if episode%1000==0:
+                if episode%10==0:
 
                     print("Episode %d finished after %f time steps" % (episode, t))
                 if (t >= SOLVED_T):
@@ -112,21 +114,22 @@ def train():
                 else:
                     num_train_streaks = 0
                 break
-
             #sleep(0.25)
             
         # It's considered done when it's solved over 120 times consecutively
-        if num_train_streaks > STREAK_TO_END:
-            break
+        #if num_train_streaks > STREAK_TO_END:
+        #    break
 
         # Update parameters
-        explore_rate = get_explore_rate(episode,0)
-        #explore_rate=explore_rate*math.e**(-1*(t+20)/40)
+        #explore_rate = get_explore_rate(episode)
+        if t>=reward_thresh:
+            explore_rate=max(MIN_EXPLORE_RATE, min(1, 1.0 - math.log10((t+1)/10)))
+            reward_thresh=reward_thresh+100
         #print("rate:",explore_rate)
         learning_rate = get_learning_rate(episode) 
         timestep_list.append(t)
-    NUM_OF_EPISODES_NEEDED=len(timestep_list) #records no. of episodes needed to train
-    return NUM_OF_EPISODES_NEEDED
+    #NUM_OF_EPISODES_NEEDED=len(timestep_list) #records no. of episodes needed to train
+    return timestep_list
 
 
 def test():
@@ -179,12 +182,8 @@ def select_action(state, explore_rate):
 
 
 
-def get_explore_rate(t,mode):
-    if mode==0:
-        return max(MIN_EXPLORE_RATE, min(1, 1.0 - math.log10((t+1)/10)))
-    elif mode==1:
-        initial_rate=1
-        return max(MIN_EXPLORE_RATE,initial_rate*math.e**(-1*(t+20)/40))
+def get_explore_rate(t):
+    return max(MIN_EXPLORE_RATE, min(1, 1.0 - math.log10((t+1)/10)))
 
 def get_learning_rate(t):
     return max(MIN_LEARNING_RATE, min(0.5, 1.0 - math.log10((t+1)/25)))
@@ -215,31 +214,38 @@ def Average(list):
     return sum(list)/len(list)
 
 if __name__ == "__main__":
-    print('Training ...')
     for i in range(TOTAL_TRIES):
+        print('Training:',i)
         ## Initialize new Q Table
         q_table = np.zeros(NUM_BUCKETS + (NUM_ACTIONS,))
-        NUM_OF_TRAIN_EPISODES_NEEDED=train()
-        NUM_OF_EPISODES_NEEDED_list.append(NUM_OF_TRAIN_EPISODES_NEEDED) #records no. of episodes needed to train into a list
-        print('Testing ...')
-        TEST_EPISODES_SCORE=test()
-    AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED=Average(NUM_OF_EPISODES_NEEDED_list) #averages no. of episodes
-    print("Standard Dev:",statistics.stdev(NUM_OF_EPISODES_NEEDED_list))
-    print("Average # of eps:",AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED)
-    AVERAGE_TEST_EPISODE_SCORE=Average(TEST_EPISODES_SCORE)
-    print("Average test score:",AVERAGE_TEST_EPISODE_SCORE)
+        TOTAL_TRAIN_REWARDS=train()
+        #NUM_OF_EPISODES_NEEDED_list.append(NUM_OF_TRAIN_EPISODES_NEEDED) #records no. of episodes needed to train into a list
+        #rewards_train_list.append(rewards_train)
+        #print('Testing ...')
+        #TEST_EPISODES_SCORE=test()
+        with open('CartPole_Rewards50Thresh.csv','a') as f:
+         write=csv.writer(f)
+         write.writerow(TOTAL_TRAIN_REWARDS)
+    #AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED=Average(NUM_OF_EPISODES_NEEDED_list) #averages no. of episodes
+    #print("Standard Dev:",statistics.stdev(NUM_OF_EPISODES_NEEDED_list))
+    #print("Average # of eps:",AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED)
+    #AVERAGE_TEST_EPISODE_SCORE=Average(TEST_EPISODES_SCORE)
+    #print("Average test score:",AVERAGE_TEST_EPISODE_SCORE)
+    #print(rewards_train_list)
     
     '''
     #print(q_table)
     plt.subplot(211)
-    plt.plot((np.arange(len(timestep_list)) + 1), timestep_list, "-r", label="Training Timestep")
+    plt.plot((np.arange(len(TOTAL_TRAIN_REWARDS))), TOTAL_TRAIN_REWARDS, "-r", label="Training Timestep")
     plt.xlabel('Episodes')
     plt.ylabel('Timestep')
     plt.title('Training Timestep vs Episodes') 
+   
     plt.subplot(212)
     plt.plot((np.arange(len(timestep_test_list)) + 1), timestep_test_list, "-b", label="Testing Timestep")
     plt.xlabel('Episodes')
     plt.ylabel('Timestep')
     plt.title('Testing Timestep vs Episodes')
+    
     plt.show()
     '''
