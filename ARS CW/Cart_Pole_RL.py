@@ -60,7 +60,7 @@ def train():
     explore_rate = get_explore_rate(0)
     discount_factor = 0.99  # since the world is unchanging
     tt=0
-    reward_thresh=100
+    reward_thresh=1
     timestep_list=[]
     num_train_streaks = 0
     for episode in range(NUM_TRAIN_EPISODES):
@@ -124,7 +124,7 @@ def train():
         #explore_rate = get_explore_rate(episode)
         if t>=reward_thresh:
             explore_rate=max(MIN_EXPLORE_RATE, min(1, 1.0 - math.log10((t+1)/10)))
-            reward_thresh=reward_thresh+100
+            reward_thresh=reward_thresh+5
         #print("rate:",explore_rate)
         learning_rate = get_learning_rate(episode) 
         timestep_list.append(t)
@@ -223,7 +223,7 @@ if __name__ == "__main__":
         #rewards_train_list.append(rewards_train)
         #print('Testing ...')
         #TEST_EPISODES_SCORE=test()
-        with open('CartPole_Rewards50Thresh.csv','a') as f:
+        with open('CartPole_Rewards1Thresh.csv','a') as f:
          write=csv.writer(f)
          write.writerow(TOTAL_TRAIN_REWARDS)
     #AVERAGE_NUM_OF_TRAIN_EPISODES_NEEDED=Average(NUM_OF_EPISODES_NEEDED_list) #averages no. of episodes
