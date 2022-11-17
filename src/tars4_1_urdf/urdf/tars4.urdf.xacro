@@ -506,7 +506,7 @@
  <!--Skid Steer Plugin ..............................................-->
 
  <gazebo>
-  <plugin name="skid_steedepth_drive_controller" filename="libgazebo_ros_skid_steedepth_drive.so">
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
     <updateRate>100.0</updateRate>
     <robotNamespace>/</robotNamespace>
     <leftFrontJoint>frontleftjoint</leftFrontJoint>
