@@ -1,6 +1,6 @@
 <launch>
   <include
-    file="$(find gazebo_ros)/launch/empty_world.launch" />
+    file="$(find tars4)/launch/tars4_world.launch" />
   <node
     name="tf_footprint_base"
     pkg="tf"
