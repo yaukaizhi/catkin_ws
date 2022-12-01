@@ -285,74 +285,7 @@
       effort="1"
       velocity="1.5" />
   </joint>
-<!--right camera ..............................................-->
-  <!-- <joint name="depth_camera_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="depth_camera_link"/>
-        <origin xyz="0.32636 0 0.65905" rpy="0 0 0"/>
-    </joint>
-
-    <link name="depth_camera_link">
-        <visual>
-            <geometry>
-                <box size="0.033 0.175 0.03"/>
-                <material
-                name="">
-                <color
-                rgba="0 0 0 1" />
-               </material>
-            </geometry>
-        </visual>
-    </link>
-
-
-    <joint name="depth_camera_optical_joint" type="fixed">
-        <parent link="depth_camera_link"/>
-        <child link="depth_camera_link_optical"/>
-        <origin xyz="0 0 0" rpy="-1.57079632679 0 -1.57079632679"/>
-    </joint>
-
-    <link name="depth_camera_link_optical"></link>
-
-
-
-    <gazebo reference="depth_camera_link">
-        <material>Gazebo/Red</material>
-
-        <sensor name="depth_camera" type="camera">
-            <pose> 0 0 0 0 0 0 </pose>
-            <visualize>true</visualize>
-            <update_rate>10</update_rate>
-            <camera>
-                <horizontal_fov>1.57079632679</horizontal_fov>
-                <image>
-                    <format>R8G8B8</format>
-                    <width>1920</width>
-                    <height>1080</height>
-                </image>
-                <clip>
-                    <near>0.5</near>
-                    <far>25.0</far>
-                </clip>
-            </camera>
-
-            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                <cameraName>depth_camera</cameraName>
-                <frame_name>depth_camera_link_optical</frame_name>
-                <imageTopicName>/stereo/right/image_raw</imageTopicName>
-                <cameraInfoTopicName>/stereo/right/camera_info</cameraInfoTopicName>
-                <broadcastTF>true</broadcastTF>
-                <hackBaseline>0.07</hackBaseline>
-                <distortionK1>0.0</distortionK1>
-                <distortionK2>0.0</distortionK2>
-                <distortionK3>0.0</distortionK3>
-                <distortionT1>0.0</distortionT1>
-                <distortionT2>0.0</distortionT2>
-                <min_depth>0.5</min_depth>
-                <max_depth>25</max_depth>
-            </plugin>
-        </sensor>
-    </gazebo> -->
+ <!-- Depth camera plugin ..................................................................................-->
   <joint name="depth_camera_joint" type="fixed">
         <parent link="base_link"/>
         <child link="depth_camera_link"/>
@@ -434,75 +367,7 @@
     </gazebo>
 
 
-<!-- left camera .............................................. -->
-  <!-- <joint name="l_camera_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="l_camera_link"/>
-        <origin xyz="0.32636 0 0.65905" rpy="0 0 0"/>
-    </joint>
 
-    <link name="l_camera_link">
-        <visual>
-            <geometry>
-                <box size="0.033 0.175 0.03"/>
-                <material
-                name="">
-                <color
-                rgba="0 0 0 1" />
-               </material>
-            </geometry>
-        </visual>
-    </link>
-
-
-    <joint name="l_camera_optical_joint" type="fixed">
-        <parent link="l_camera_link"/>
-        <child link="l_camera_link_optical"/>
-        <origin xyz="0 0 0" rpy="-1.57079632679 0 -1.57079632679"/>
-    </joint>
-
-    <link name="l_camera_link_optical"></link>
-
-
-
-    <gazebo reference="l_camera_link">
-        <material>Gazebo/Red</material>
-
-        <sensor name="l_camera" type="camera">
-            <pose> 0 0 0 0 0 0 </pose>
-            <visualize>true</visualize>
-            <update_rate>10</update_rate>
-            <camera>
-                <horizontal_fov>1.57079632679</horizontal_fov>
-                <image>
-                    <format>R8G8B8</format>
-                    <width>1920</width>
-                    <height>1080</height>
-                </image>
-                <clip>
-                    <near>0.5</near>
-                    <far>25.0</far>
-                </clip>
-            </camera>
-
-            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-              <alwaysOn>true</alwaysOn>
-                <cameraName>l_camera</cameraName>
-                <frame_name>l_camera_link_optical</frame_name>
-                <imageTopicName>/stereo/left/image_raw</imageTopicName>
-                <cameraInfoTopicName>/stereo/left/camera_info</cameraInfoTopicName>
-                <broadcastTF>true</broadcastTF>
-                <hackBaseline>0.07</hackBaseline>
-                <distortionK1>0.0</distortionK1>
-                <distortionK2>0.0</distortionK2>
-                <distortionK3>0.0</distortionK3>
-                <distortionT1>0.0</distortionT1>
-                <distortionT2>0.0</distortionT2>
-                <min_depth>0.5</min_depth>
-                <max_depth>25</max_depth>
-            </plugin>
-        </sensor>
-    </gazebo> -->
  <!--Skid Steer Plugin ..............................................-->
 
  <gazebo>
