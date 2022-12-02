@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="TARS5_URDF">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0319297701447891 7.49799744740876E-05 0.19294099047024"
+        rpy="0 0 0" />
+      <mass
+        value="36.0649927126506" />
+      <inertia
+        ixx="2.79574737683864"
+        ixy="-0.000333462074481655"
+        ixz="0.248503881752532"
+        iyy="4.97249537454924"
+        iyz="-0.000247280056359223"
+        izz="5.92933182619561" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_fl">
+    <inertial>
+      <origin
+        xyz="0 -0.0275 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.80419482299145" />
+      <inertia
+        ixx="0.00518473415115212"
+        ixy="-3.71331798375396E-20"
+        ixz="5.43368413105831E-19"
+        iyy="0.00946593125082104"
+        iyz="-2.88567079174839E-18"
+        izz="0.00518473415115212" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/link_fl.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/link_fl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_fl"
+    type="continuous">
+    <origin
+      xyz="0.15044 0.24755 0.055551"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_fl" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1.5" />
+  </joint>
+  <link
+    name="link_bl">
+    <inertial>
+      <origin
+        xyz="0 -0.0275 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.80419482299145" />
+      <inertia
+        ixx="0.00518473415115212"
+        ixy="-9.68146390037796E-20"
+        ixz="7.44914140213389E-20"
+        iyy="0.00946593125082104"
+        iyz="-3.30697682152431E-18"
+        izz="0.00518473415115212" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/link_bl.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/link_bl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joingt_bl"
+    type="continuous">
+    <origin
+      xyz="-0.14956 0.24755 0.055551"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_bl" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1.5" />
+  </joint>
+  <link
+    name="link_br">
+    <inertial>
+      <origin
+        xyz="0 0.0275 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.80419482299145" />
+      <inertia
+        ixx="0.00518473415115212"
+        ixy="3.91111150201269E-19"
+        ixz="4.64489917458846E-19"
+        iyy="0.00946593125082104"
+        iyz="3.11347779802501E-18"
+        izz="0.00518473415115212" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/link_br.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/link_br.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_br"
+    type="continuous">
+    <origin
+      xyz="-0.14956 -0.24745 0.055551"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_br" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1.5" />
+  </joint>
+  <link
+    name="link_fr">
+    <inertial>
+      <origin
+        xyz="0 0.0275 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.80419482299145" />
+      <inertia
+        ixx="0.00518473415115212"
+        ixy="5.04117232506725E-19"
+        ixz="5.47235241208503E-19"
+        iyy="0.00946593125082104"
+        iyz="2.51726763178231E-18"
+        izz="0.00518473415115212" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/link_fr.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://TARS5_URDF/meshes/link_fr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_fr"
+    type="continuous">
+    <origin
+      xyz="0.15044 -0.24745 0.055551"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_fr" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1.5" />
+  </joint>
+
+
+ <!--Skid Steer Plugin ..............................................-->
+
+ <gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace>/</robotNamespace>
+    <leftFrontJoint>joint_fl</leftFrontJoint>
+    <rightFrontJoint>joint_fr</rightFrontJoint>
+    <leftRearJoint>joingt_bl</leftRearJoint>
+    <rightRearJoint>joint_br</rightRearJoint>
+    <wheelSeparation>0.495</wheelSeparation>
+    <wheelDiameter>0.205</wheelDiameter>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <torque>20</torque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <broadcastTF>true</broadcastTF>
+    <covariance_x>0.001</covariance_x> <!-- 0.0001 -->
+    <covariance_y>0.001</covariance_y> <!-- 0.0001 -->
+    <covariance_yaw>0.01</covariance_yaw> <!-- 0.01 -->
+  </plugin>
+</gazebo>
+
+<!--IR/SONAR Plugin ..............................................-->
+
+<joint name="ir_front_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 0 0" xyz="0.5 0 0" />
+    <parent link="base_link"/>
+    <child link="base_ir_front"/>
+</joint>
+<link name="base_ir_front">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0"      izz="1e-6" />
+    </inertial>
+</link>
+
+ <gazebo reference="base_ir_front">        
+   <sensor type="ray" name="TeraRanger">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>50</update_rate>
+      <ray>
+         <scan>
+            <horizontal>
+               <samples>10</samples>
+               <resolution>1</resolution> 
+               <min_angle>-0.654498</min_angle>
+               <max_angle>0.654498</max_angle>
+            </horizontal>
+            <vertical>
+               <samples>10</samples>
+               <resolution>1</resolution> 
+               <min_angle>-0.654498</min_angle>
+               <max_angle>0.654498</max_angle> 
+            </vertical>
+         </scan>
+         <range>
+            <min>0.2</min>
+            <max>8</max>
+            <resolution>0.02</resolution>
+         </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+         <gaussianNoise>0.005</gaussianNoise>
+         <alwaysOn>true</alwaysOn>
+         <updateRate>50</updateRate>
+         <topicName>sensor/ir_front</topicName>
+         <frameName>base_ir_front</frameName>
+         <radiation>INFRARED</radiation>
+         <fov>1.309</fov>
+      </plugin>
+   </sensor>  
+   </gazebo>
+</robot>

@@ -7,6 +7,7 @@
 subdirs("gtest")
 subdirs("DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_description")
 subdirs("DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator")
+subdirs("TARS5_URDF")
 subdirs("tars4_1_urdf")
 subdirs("DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins")
 subdirs("DRL-robot-navigation/catkin_ws/src/multi_robot_scenario")

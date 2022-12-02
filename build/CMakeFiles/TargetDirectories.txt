@@ -50,6 +50,13 @@
 /home/kai/catkin_ws/build/DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator/CMakeFiles/rebuild_cache.dir
 /home/kai/catkin_ws/build/DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator/CMakeFiles/edit_cache.dir
 /home/kai/catkin_ws/build/DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator/CMakeFiles/test.dir
+/home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/install/strip.dir
+/home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/install/local.dir
+/home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/install.dir
+/home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/list_install_components.dir
+/home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/rebuild_cache.dir
+/home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/edit_cache.dir
+/home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/test.dir
 /home/kai/catkin_ws/build/tars4_1_urdf/CMakeFiles/install/strip.dir
 /home/kai/catkin_ws/build/tars4_1_urdf/CMakeFiles/install/local.dir
 /home/kai/catkin_ws/build/tars4_1_urdf/CMakeFiles/install.dir
