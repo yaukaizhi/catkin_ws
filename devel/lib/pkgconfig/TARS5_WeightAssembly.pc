@@ -1,0 +1,8 @@
+prefix=/home/kai/catkin_ws/devel
+
+Name: TARS5_WeightAssembly
+Description: Description of TARS5_WeightAssembly
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

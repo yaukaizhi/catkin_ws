@@ -57,6 +57,7 @@ all: gtest/all
 all: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_description/all
 all: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator/all
 all: TARS5_URDF/all
+all: TARS_5Full/all
 all: tars4_1_urdf/all
 all: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins/all
 all: DRL-robot-navigation/catkin_ws/src/multi_robot_scenario/all
@@ -68,6 +69,7 @@ preinstall: gtest/preinstall
 preinstall: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_description/preinstall
 preinstall: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator/preinstall
 preinstall: TARS5_URDF/preinstall
+preinstall: TARS_5Full/preinstall
 preinstall: tars4_1_urdf/preinstall
 preinstall: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins/preinstall
 preinstall: DRL-robot-navigation/catkin_ws/src/multi_robot_scenario/preinstall
@@ -84,6 +86,7 @@ clean: gtest/clean
 clean: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_description/clean
 clean: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator/clean
 clean: TARS5_URDF/clean
+clean: TARS_5Full/clean
 clean: tars4_1_urdf/clean
 clean: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins/clean
 clean: DRL-robot-navigation/catkin_ws/src/multi_robot_scenario/clean
@@ -248,6 +251,24 @@ TARS5_URDF/preinstall:
 TARS5_URDF/clean:
 
 .PHONY : TARS5_URDF/clean
+
+#=============================================================================
+# Directory level rules for directory TARS_5Full
+
+# Recursive "all" directory target.
+TARS_5Full/all:
+
+.PHONY : TARS_5Full/all
+
+# Recursive "preinstall" directory target.
+TARS_5Full/preinstall:
+
+.PHONY : TARS_5Full/preinstall
+
+# Recursive "clean" directory target.
+TARS_5Full/clean:
+
+.PHONY : TARS_5Full/clean
 
 #=============================================================================
 # Directory level rules for directory gtest

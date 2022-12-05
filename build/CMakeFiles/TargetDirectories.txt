@@ -57,6 +57,13 @@
 /home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/rebuild_cache.dir
 /home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/edit_cache.dir
 /home/kai/catkin_ws/build/TARS5_URDF/CMakeFiles/test.dir
+/home/kai/catkin_ws/build/TARS_5Full/CMakeFiles/install/strip.dir
+/home/kai/catkin_ws/build/TARS_5Full/CMakeFiles/install/local.dir
+/home/kai/catkin_ws/build/TARS_5Full/CMakeFiles/install.dir
+/home/kai/catkin_ws/build/TARS_5Full/CMakeFiles/list_install_components.dir
+/home/kai/catkin_ws/build/TARS_5Full/CMakeFiles/rebuild_cache.dir
+/home/kai/catkin_ws/build/TARS_5Full/CMakeFiles/edit_cache.dir
+/home/kai/catkin_ws/build/TARS_5Full/CMakeFiles/test.dir
 /home/kai/catkin_ws/build/tars4_1_urdf/CMakeFiles/install/strip.dir
 /home/kai/catkin_ws/build/tars4_1_urdf/CMakeFiles/install/local.dir
 /home/kai/catkin_ws/build/tars4_1_urdf/CMakeFiles/install.dir
