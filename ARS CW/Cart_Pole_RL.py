@@ -5,7 +5,6 @@ import math
 import time
 from time import sleep
 import matplotlib.pyplot as plt
-import statistics
 import csv
 
 #lists to visualize data in graphs
