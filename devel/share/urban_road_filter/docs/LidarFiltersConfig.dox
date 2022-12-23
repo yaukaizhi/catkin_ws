@@ -1,0 +1,33 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~fixed_frame" : \b [str] Fixed frame. (Restart needed if it changes.) min: , default: left_os1/os1_lidar, max: 
+- \b "~topic_name" : \b [str] (Restart needed if it changes.) min: , default: /left_os1/os1_cloud_node/points, max: 
+- \b "~x_zero_method" : \b [bool] x zero method. min: False, default: True, max: True
+- \b "~z_zero_method" : \b [bool] z zero method. min: False, default: True, max: True
+- \b "~star_shaped_method" : \b [bool] star shaped method min: False, default: True, max: True
+- \b "~blind_spots" : \b [bool] Filtering blind spots. min: False, default: True, max: True
+- \b "~xDirection" : \b [int] Filtering blind spots in  (+-,+,-) X direction. min: 0, default: 0, max: 2
+- \b "~interval" : \b [double] LIDAR's vertical resolution min: 0.01, default: 0.18, max: 10.0
+- \b "~curb_height" : \b [double] Estimated minimum height of the curb.[m] min: 0.01, default: 0.05, max: 0.5
+- \b "~curb_points" : \b [int] Estimated number of points on the curb.[pcs] min: 1, default: 5, max: 30
+- \b "~beamZone" : \b [double] Width of the beam zone.[deg] min: 10.0, default: 30.0, max: 100.0
+- \b "~min_x" : \b [double] Size of the examined area: Min X [m]. min: -200.0, default: 0.0, max: 200.0
+- \b "~max_x" : \b [double] Size of the examined area:: Max X [m]. min: -200.0, default: 30.0, max: 200.0
+- \b "~min_y" : \b [double] Size of the examined area: Min Y [m]. min: -200.0, default: -10.0, max: 200.0
+- \b "~max_y" : \b [double] Size of the examined area: Max Y [m]. min: -200.0, default: 10.0, max: 200.0
+- \b "~min_z" : \b [double] Size of the examined area: Min Z [m].  min: -200.0, default: -3.0, max: 200.0
+- \b "~max_z" : \b [double] Size of the examined area: Max Z [m]. min: -200.0, default: -1.0, max: 200.0
+- \b "~cylinder_deg_x" : \b [double] The included angle of the examined triangle(three point)[deg]. - x_zero_method min: 0.0, default: 150.0, max: 180.0
+- \b "~cylinder_deg_z" : \b [double] The included angle of the examined triangle(two vectors)[deg]. - z_zero_method min: 0.0, default: 140.0, max: 180.0
+- \b "~curb_slope_deg" : \b [double] Radial threshold [deg]. - star_shaped_method min: 0.0, default: 50.0, max: 180.0
+- \b "~kdev_param" : \b [double] Disperion coefficient min: 0.5, default: 1.225, max: 5.0
+- \b "~kdist_param" : \b [double] Distance coefficient min: 0.4, default: 2.0, max: 10.0
+- \b "~starbeam_filter" : \b [bool] Use rectangular beams for detection instead of the whole sectors (StarShaped) min: False, default: False, max: True
+- \b "~dmin_param" : \b [int] Min number of points for dispersion min: 3, default: 10, max: 30
+- \b "~simple_poly_allow" : \b [bool] Use simplified polygon (height data will be lost!) min: False, default: True, max: True
+- \b "~poly_s_param" : \b [double] Coefficient of polygon simplification min: 0.0, default: 0.7, max: 1.0
+- \b "~poly_z_manual" : \b [double] Set a constant polygon height min: -5.0, default: -1.5, max: 5.0
+- \b "~poly_z_avg_allow" : \b [bool] Set polygon height to average value min: False, default: True, max: True
+

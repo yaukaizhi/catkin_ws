@@ -377,7 +377,7 @@
 
 <!--IR/SONAR Plugin ..............................................-->
 
-<joint name="ir_front_joint" type="fixed">
+<!-- <joint name="ir_front_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin rpy="0 0 0" xyz="0.5 0 0" />
     <parent link="base_link"/>
@@ -439,5 +439,5 @@
          <fov>1.309</fov>
       </plugin>
    </sensor>  
-   </gazebo>
+   </gazebo> -->
     </robot>

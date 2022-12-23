@@ -59,6 +59,8 @@ all: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator/al
 all: TARS5_URDF/all
 all: TARS_5Full/all
 all: tars4_1_urdf/all
+all: tars5_5/all
+all: tars5_6/all
 all: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins/all
 all: DRL-robot-navigation/catkin_ws/src/multi_robot_scenario/all
 
@@ -71,6 +73,8 @@ preinstall: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simul
 preinstall: TARS5_URDF/preinstall
 preinstall: TARS_5Full/preinstall
 preinstall: tars4_1_urdf/preinstall
+preinstall: tars5_5/preinstall
+preinstall: tars5_6/preinstall
 preinstall: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins/preinstall
 preinstall: DRL-robot-navigation/catkin_ws/src/multi_robot_scenario/preinstall
 
@@ -88,6 +92,8 @@ clean: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator/
 clean: TARS5_URDF/clean
 clean: TARS_5Full/clean
 clean: tars4_1_urdf/clean
+clean: tars5_5/clean
+clean: tars5_6/clean
 clean: DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins/clean
 clean: DRL-robot-navigation/catkin_ws/src/multi_robot_scenario/clean
 
@@ -344,6 +350,42 @@ tars4_1_urdf/preinstall:
 tars4_1_urdf/clean:
 
 .PHONY : tars4_1_urdf/clean
+
+#=============================================================================
+# Directory level rules for directory tars5_5
+
+# Recursive "all" directory target.
+tars5_5/all:
+
+.PHONY : tars5_5/all
+
+# Recursive "preinstall" directory target.
+tars5_5/preinstall:
+
+.PHONY : tars5_5/preinstall
+
+# Recursive "clean" directory target.
+tars5_5/clean:
+
+.PHONY : tars5_5/clean
+
+#=============================================================================
+# Directory level rules for directory tars5_6
+
+# Recursive "all" directory target.
+tars5_6/all:
+
+.PHONY : tars5_6/all
+
+# Recursive "preinstall" directory target.
+tars5_6/preinstall:
+
+.PHONY : tars5_6/preinstall
+
+# Recursive "clean" directory target.
+tars5_6/clean:
+
+.PHONY : tars5_6/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir

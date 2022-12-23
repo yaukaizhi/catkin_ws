@@ -108,13 +108,20 @@ def detect_line(image):
     plt.subplot(211)
     plt.imshow(image)
     return line_image
-
-image=image = mpimg.imread('test_road_image4.jpg')
-line_image=detect_line(image)
+#-----------------------------------------------------Video-----------------------------------------    
+# from moviepy.editor import VideoFileClip
+# from IPython.display import HTML
+# white_output = 'test_road2output.mp4'
+# clip1 = VideoFileClip("test_road2.mp4")
+# white_clip = clip1.fl_image(detect_line)
+# white_clip.write_videofile(white_output, audio=False)
+#-----------------------------------------------------Photo-------------------------------------------
+# image=image = mpimg.imread('test_road_image5.jpg')
+# line_image=detect_line(image)
 
 # plt.subplot(212)
 # plt.imshow(cropped_image)
-plt.subplot(212)
-plt.imshow(line_image)
-plt.show()
+# plt.subplot(212)
+# plt.imshow(line_image)
+# plt.show()
 

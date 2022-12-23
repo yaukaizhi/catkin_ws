@@ -7,7 +7,8 @@
             },
             "includePath": [
                 "/opt/ros/noetic/include/**",
-                "/usr/include/**"
+                "/usr/include/**",
+                "${workspaceFolder}/src/urban_road_filter-main/include"
             ],
             "name": "ROS",
             "intelliSenseMode": "gcc-x64",

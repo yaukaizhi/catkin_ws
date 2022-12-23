@@ -1,0 +1,34 @@
+\subsubsection usage Usage
+\verbatim
+<node name="urban_road_filter" pkg="urban_road_filter" type="urban_road_filter">
+  <param name="fixed_frame" type="str" value="left_os1/os1_lidar" />
+  <param name="topic_name" type="str" value="/left_os1/os1_cloud_node/points" />
+  <param name="x_zero_method" type="bool" value="True" />
+  <param name="z_zero_method" type="bool" value="True" />
+  <param name="star_shaped_method" type="bool" value="True" />
+  <param name="blind_spots" type="bool" value="True" />
+  <param name="xDirection" type="int" value="0" />
+  <param name="interval" type="double" value="0.18" />
+  <param name="curb_height" type="double" value="0.05" />
+  <param name="curb_points" type="int" value="5" />
+  <param name="beamZone" type="double" value="30.0" />
+  <param name="min_x" type="double" value="0.0" />
+  <param name="max_x" type="double" value="30.0" />
+  <param name="min_y" type="double" value="-10.0" />
+  <param name="max_y" type="double" value="10.0" />
+  <param name="min_z" type="double" value="-3.0" />
+  <param name="max_z" type="double" value="-1.0" />
+  <param name="cylinder_deg_x" type="double" value="150.0" />
+  <param name="cylinder_deg_z" type="double" value="140.0" />
+  <param name="curb_slope_deg" type="double" value="50.0" />
+  <param name="kdev_param" type="double" value="1.225" />
+  <param name="kdist_param" type="double" value="2.0" />
+  <param name="starbeam_filter" type="bool" value="False" />
+  <param name="dmin_param" type="int" value="10" />
+  <param name="simple_poly_allow" type="bool" value="True" />
+  <param name="poly_s_param" type="double" value="0.7" />
+  <param name="poly_z_manual" type="double" value="-1.5" />
+  <param name="poly_z_avg_allow" type="bool" value="True" />
+</node>
+\endverbatim
+

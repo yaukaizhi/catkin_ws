@@ -1,0 +1,8 @@
+prefix=/home/kai/catkin_ws/install
+
+Name: urban_road_filter
+Description: Description of urban_road_filter
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lurban_road_filter
+Requires: 

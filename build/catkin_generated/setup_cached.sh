@@ -12,5 +12,6 @@ export LD_LIBRARY_PATH='/home/kai/catkin_ws/devel/lib:/opt/ros/noetic/lib:/usr/l
 export PATH='/opt/ros/noetic/bin:/home/kai/.local/bin:/home/kai/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
 export PKG_CONFIG_PATH="/home/kai/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/kai/catkin_ws/build'
+export PYTHONPATH="/home/kai/catkin_ws/devel/lib/python3/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES='/home/kai/catkin_ws/devel/share/common-lisp'
 export ROS_PACKAGE_PATH='/home/kai/catkin_ws/src:/opt/ros/noetic/share'
