@@ -1,0 +1,24 @@
+(cl:in-package point_cloud_segmentation-srv)
+(cl:export '(VOXEL_RESOLUTION-VAL
+          VOXEL_RESOLUTION
+          SEED_RESOLUTION-VAL
+          SEED_RESOLUTION
+          COLOR_IMPORTANCE-VAL
+          COLOR_IMPORTANCE
+          SPATIAL_IMPORTANCE-VAL
+          SPATIAL_IMPORTANCE
+          NORMAL_IMPORTANCE-VAL
+          NORMAL_IMPORTANCE
+          THRESHOLD-VAL
+          THRESHOLD
+          RGB_COLOR_SPACE-VAL
+          RGB_COLOR_SPACE
+          CONVEXITY_CRITERION-VAL
+          CONVEXITY_CRITERION
+          ADAPT_LAMBDA-VAL
+          ADAPT_LAMBDA
+          EQUALIZATION-VAL
+          EQUALIZATION
+          SUCCESS-VAL
+          SUCCESS
+))

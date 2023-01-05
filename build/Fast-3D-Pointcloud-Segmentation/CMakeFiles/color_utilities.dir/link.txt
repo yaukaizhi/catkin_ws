@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC     -shared -Wl,-soname,libcolor_utilities.so -o /home/kai/catkin_ws/devel/lib/libcolor_utilities.so CMakeFiles/color_utilities.dir/src/color_utilities.cpp.o 

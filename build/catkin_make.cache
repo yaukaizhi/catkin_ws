@@ -1,2 +1,2 @@
-DRL-robot-navigation/catkin_ws/src/multi_robot_scenario:DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_description:DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins:DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator:TARS5_URDF:TARS_5Full:tars4_1_urdf:tars5_5:tars5_6
+tars5_6
 -DCATKIN_DEVEL_PREFIX=/home/kai/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kai/catkin_ws/install -G Unix Makefiles

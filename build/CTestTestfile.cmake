@@ -5,12 +5,4 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
-subdirs("DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_description")
-subdirs("DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator")
-subdirs("TARS5_URDF")
-subdirs("TARS_5Full")
-subdirs("tars4_1_urdf")
-subdirs("tars5_5")
 subdirs("tars5_6")
-subdirs("DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins")
-subdirs("DRL-robot-navigation/catkin_ws/src/multi_robot_scenario")

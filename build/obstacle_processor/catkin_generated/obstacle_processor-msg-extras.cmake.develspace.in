@@ -1,0 +1,2 @@
+set(obstacle_processor_MESSAGE_FILES "/home/kai/catkin_ws/src/obstacle_processor/msg/processed_box_data.msg;/home/kai/catkin_ws/src/obstacle_processor/msg/processed_cylinder_data.msg;/home/kai/catkin_ws/src/obstacle_processor/msg/processed_undefined_data.msg;/home/kai/catkin_ws/src/obstacle_processor/msg/processed_wall_like_object_data.msg")
+set(obstacle_processor_SERVICE_FILES "")

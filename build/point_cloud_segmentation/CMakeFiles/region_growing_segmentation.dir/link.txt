@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC     -shared -Wl,-soname,libregion_growing_segmentation.so -o /home/kai/catkin_ws/devel/lib/libregion_growing_segmentation.so CMakeFiles/region_growing_segmentation.dir/src/region_growing_segmentation.cpp.o 

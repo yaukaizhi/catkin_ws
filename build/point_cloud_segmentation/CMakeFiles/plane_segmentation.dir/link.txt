@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC     -shared -Wl,-soname,libplane_segmentation.so -o /home/kai/catkin_ws/devel/lib/libplane_segmentation.so CMakeFiles/plane_segmentation.dir/src/plane_segmentation.cpp.o 

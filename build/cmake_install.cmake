@@ -131,15 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/kai/catkin_ws/build/gtest/cmake_install.cmake")
-  include("/home/kai/catkin_ws/build/DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_description/cmake_install.cmake")
-  include("/home/kai/catkin_ws/build/DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_simulator/cmake_install.cmake")
-  include("/home/kai/catkin_ws/build/TARS5_URDF/cmake_install.cmake")
-  include("/home/kai/catkin_ws/build/TARS_5Full/cmake_install.cmake")
-  include("/home/kai/catkin_ws/build/tars4_1_urdf/cmake_install.cmake")
-  include("/home/kai/catkin_ws/build/tars5_5/cmake_install.cmake")
   include("/home/kai/catkin_ws/build/tars5_6/cmake_install.cmake")
-  include("/home/kai/catkin_ws/build/DRL-robot-navigation/catkin_ws/src/velodyne_simulator/velodyne_gazebo_plugins/cmake_install.cmake")
-  include("/home/kai/catkin_ws/build/DRL-robot-navigation/catkin_ws/src/multi_robot_scenario/cmake_install.cmake")
 
 endif()
 

@@ -1,0 +1,7 @@
+set(obj_recognition_SETUP_PY_SETUP_MODULE "distutils.core")
+set(obj_recognition_SETUP_PY_VERSION "0.0.0")
+set(obj_recognition_SETUP_PY_SCRIPTS "")
+set(obj_recognition_SETUP_PY_PACKAGES "obj_recognition")
+set(obj_recognition_SETUP_PY_PACKAGE_DIRS "src/obj_recognition")
+set(obj_recognition_SETUP_PY_MODULES "")
+set(obj_recognition_SETUP_PY_MODULE_DIRS "")

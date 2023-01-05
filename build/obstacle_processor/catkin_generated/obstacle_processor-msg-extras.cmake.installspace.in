@@ -1,0 +1,2 @@
+set(obstacle_processor_MESSAGE_FILES "msg/processed_box_data.msg;msg/processed_cylinder_data.msg;msg/processed_undefined_data.msg;msg/processed_wall_like_object_data.msg")
+set(obstacle_processor_SERVICE_FILES "")
