@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/src/tars4_1_urdf",
+    "cmake.sourceDirectory": "${workspaceFolder}/DRL/catkin_ws/build/catkin_generated/metapackages/velodyne_simulator",
     "python.autoComplete.extraPaths": [
         "/opt/ros/noetic/lib/python3/dist-packages"
     ],
