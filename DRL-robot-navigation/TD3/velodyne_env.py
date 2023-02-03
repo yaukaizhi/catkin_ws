@@ -17,8 +17,8 @@ from std_srvs.srv import Empty
 from visualization_msgs.msg import Marker
 from visualization_msgs.msg import MarkerArray
 
-GOAL_REACHED_DIST = 0.3
-COLLISION_DIST = 0.4
+GOAL_REACHED_DIST = 0.5
+COLLISION_DIST = 0.5
 TIME_DELTA = 0.1
 
 
