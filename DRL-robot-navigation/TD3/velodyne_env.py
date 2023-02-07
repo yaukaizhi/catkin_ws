@@ -17,7 +17,7 @@ from std_srvs.srv import Empty
 from visualization_msgs.msg import Marker
 from visualization_msgs.msg import MarkerArray
 
-GOAL_REACHED_DIST = 0.5
+GOAL_REACHED_DIST = 0.6
 COLLISION_DIST = 0.5
 TIME_DELTA = 0.1
 
@@ -26,7 +26,7 @@ TIME_DELTA = 0.1
 def check_pos(x, y):
     goal_ok = True
 
-    if -3.8 > x > -6.2 and 6.2 > y > 3.8:
+    if -3.8 > x > -6.2 and -3 > y > 2:
         goal_ok = False
 
     if -1.3 > x > -2.7 and 4.7 > y > -0.2:
@@ -44,7 +44,7 @@ def check_pos(x, y):
     if 4.2 > x > 0.8 and -1.8 > y > -3.2:
         goal_ok = False
 
-    if 4 > x > 2.5 and 0.7 > y > -3.2:
+    if 4 > x > 11 and -3 > y > 2:
         goal_ok = False
 
     if 6.2 > x > 3.8 and -3.3 > y > -4.2:
